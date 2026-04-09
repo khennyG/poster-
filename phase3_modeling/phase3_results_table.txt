@@ -1,0 +1,42 @@
+PHASE 3: COMPREHENSIVE MODEL COMPARISON RESULTS
+====================================================================================================
+FS    Target                    Model           AUPRC    AUROC       F1    vs Base
+----------------------------------------------------------------------------------------------------
+Base  urination_next_15min      Hourly Rate    0.1617
+A     urination_next_15min      LR             0.2933   0.8095   0.3670     +81.4%
+A     urination_next_15min      LightGBM       0.3419   0.8437   0.4009    +111.4%
+Base  urination_next_30min      Hourly Rate    0.2414
+A     urination_next_30min      LR             0.3882   0.8113   0.4362     +60.8%
+A     urination_next_30min      LightGBM       0.4575   0.8507   0.4850     +89.5%
+Base  urination_next_60min      Hourly Rate    0.4532
+A     urination_next_60min      LR             0.5818   0.8206   0.5769     +28.4%
+A     urination_next_60min      LightGBM       0.6822   0.8690   0.6345     +50.5%
+Base  bowel_next_30min          Hourly Rate    0.1160
+A     bowel_next_30min          LR             0.1387   0.8267   0.2518     +19.5%
+A     bowel_next_30min          LightGBM       0.1678   0.8578   0.2611     +44.6%
+Base  bowel_next_60min          Hourly Rate    0.2183
+A     bowel_next_60min          LR             0.2500   0.8198   0.3675     +14.5%
+A     bowel_next_60min          LightGBM       0.2826   0.8617   0.3849     +29.5%
+
+B     urination_next_15min      LR             0.1261   0.6682   0.2152     -22.0%
+B     urination_next_15min      LightGBM       0.1354   0.6752   0.2187     -16.3%
+B     urination_next_30min      LR             0.1832   0.6686   0.2976     -24.1%
+B     urination_next_30min      LightGBM       0.1927   0.6748   0.2988     -20.2%
+B     urination_next_60min      LR             0.3417   0.6772   0.4839     -24.6%
+B     urination_next_60min      LightGBM       0.3477   0.6770   0.4818     -23.3%
+B     bowel_next_30min          LR             0.0764   0.7108   0.1342     -34.2%
+B     bowel_next_30min          LightGBM       0.0943   0.7142   0.1848     -18.7%
+B     bowel_next_60min          LR             0.1354   0.6769   0.1992     -38.0%
+B     bowel_next_60min          LightGBM       0.1616   0.6698   0.2414     -26.0%
+
+C     urination_next_15min      LR             0.2951   0.8102   0.3660     +82.5%
+C     urination_next_15min      LightGBM       0.3406   0.8429   0.3968    +110.6%
+C     urination_next_30min      LR             0.3908   0.8123   0.4362     +61.9%
+C     urination_next_30min      LightGBM       0.4574   0.8515   0.4838     +89.5%
+C     urination_next_60min      LR             0.5846   0.8218   0.5783     +29.0%
+C     urination_next_60min      LightGBM       0.6826   0.8694   0.6357     +50.6%
+C     bowel_next_30min          LR             0.1398   0.8272   0.2514     +20.5%
+C     bowel_next_30min          LightGBM       0.1628   0.8570   0.2649     +40.3%
+C     bowel_next_60min          LR             0.2523   0.8190   0.3682     +15.6%
+C     bowel_next_60min          LightGBM       0.2837   0.8620   0.3864     +30.0%
+

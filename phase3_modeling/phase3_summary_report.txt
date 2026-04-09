@@ -1,0 +1,40 @@
+PHASE 3: SUPERVISED PREDICTION MODELING — SUMMARY REPORT
+======================================================================
+
+MODELS TRAINED
+  Logistic Regression (Elastic Net, l1_ratio=0.5, class_weight='balanced')
+  LightGBM (num_leaves=63, lr=0.05, early stopping 50 rounds)
+  Total configurations: 3 feature sets x 5 targets x 2 models = 30 models
+
+FEATURE SETS
+  Set A: 54 features (schedule, history, intake)
+  Set B: 8 features (wearable only)
+  Set C: 62 features (combined A + B)
+
+VALIDATION SET RESULTS (AUPRC)
+======================================================================
+Target                      Baseline     LR-A     LR-B     LR-C    LGB-A    LGB-B    LGB-C
+----------------------------------------------------------------------
+urination_next_15min          0.1617   0.2933   0.1261   0.2951   0.3419   0.1354   0.3406
+urination_next_30min          0.2414   0.3882   0.1832   0.3908   0.4575   0.1927   0.4574
+urination_next_60min          0.4532   0.5818   0.3417   0.5846   0.6822   0.3477   0.6826
+bowel_next_30min              0.1160   0.1387   0.0764   0.1398   0.1678   0.0943   0.1628
+bowel_next_60min              0.2183   0.2500   0.1354   0.2523   0.2826   0.1616   0.2837
+
+RELATIVE IMPROVEMENT OVER BASELINE (% AUPRC GAIN)
+======================================================================
+Target                        LR-A     LR-B     LR-C    LGB-A    LGB-B    LGB-C
+----------------------------------------------------------------------
+urination_next_15min        +81.4%   -22.0%   +82.5%  +111.4%   -16.3%  +110.6%
+urination_next_30min        +60.8%   -24.1%   +61.9%   +89.5%   -20.2%   +89.5%
+urination_next_60min        +28.4%   -24.6%   +29.0%   +50.5%   -23.3%   +50.6%
+bowel_next_30min            +19.5%   -34.2%   +20.5%   +44.6%   -18.7%   +40.3%
+bowel_next_60min            +14.5%   -38.0%   +15.6%   +29.5%   -26.0%   +30.0%
+
+FIGURES GENERATED
+  Fig17: PR curves - LightGBM across feature sets (urination targets)
+  Fig18: PR curves - LightGBM across feature sets (bowel targets)
+  Fig19: Feature importance - LightGBM Set C (urination 30min)
+  Fig20: SHAP bar plot - LightGBM Set C (urination 30min)
+  Fig21: SHAP beeswarm - LightGBM Set C (urination 30min)
+  Fig22: Feature set comparison bar chart (AUPRC all targets)

@@ -1,0 +1,79 @@
+PHASE 2: FEATURE ENGINEERING AND BASELINE SUMMARY
+============================================================
+
+FEATURE SET DEFINITIONS
+  Feature Set A (Schedule + History + Intake): 54 features
+  Feature Set B (Wearable Only):               8 features
+  Feature Set C (Combined A + B):              62 features
+
+EXCLUDED FROM ALL MODELS
+  - bladder_pressure_proxy (latent simulation variable)
+  - timestamp, date (index columns)
+  - All 5 target columns
+
+TEMPORAL SPLIT
+  Training:    157,680 rows  (60.0%)  2021-01-01 to 2023-12-31
+  Validation:   52,704 rows  (20.0%)  2024-01-01 to 2024-12-31
+  Test:         52,560 rows  (20.0%)  2025-01-01 to 2025-12-31
+
+MISSINGNESS HANDLING
+  minutes_since_waking:  Filled with -1 (sentinel for 'asleep')
+  minutes_until_sleep:   Filled with -1 (sentinel for 'asleep')
+  sleep_duration_prev_night_hours: Filled with training median (9.50)
+  rolling_avg_intervoid_interval_hours: Filled with training median (3.70)
+  rolling_avg_bowel_interval_hours: Filled with training median (15.27)
+  heart_rate_trend_30min: Filled with 0
+  hrv_trend_30min: Filled with 0
+
+CATEGORICAL ENCODING
+  meal_type: One-hot encoded -> ['meal_type_breakfast', 'meal_type_dinner', 'meal_type_lunch', 'meal_type_none', 'meal_type_snack']
+  meal_size: One-hot encoded -> ['meal_size_large', 'meal_size_medium', 'meal_size_none', 'meal_size_small']
+  activity_level: One-hot encoded -> ['activity_level_light', 'activity_level_moderate', 'activity_level_sedentary', 'activity_level_sleeping']
+
+BASELINE MODEL RESULTS (Hourly Rate, Validation Set)
+
+  urination_next_15min:
+    Positive rate: 8.30%
+    AUPRC:  0.1617
+    AUROC:  0.7400
+    Best F1: 0.2479 (threshold=0.1256)
+    Precision @ Best F1: 0.1548
+    Recall @ Best F1: 0.6214
+
+  urination_next_30min:
+    Positive rate: 12.34%
+    AUPRC:  0.2414
+    AUROC:  0.7513
+    Best F1: 0.3405 (threshold=0.1732)
+    Precision @ Best F1: 0.2207
+    Recall @ Best F1: 0.7453
+
+  urination_next_60min:
+    Positive rate: 23.92%
+    AUPRC:  0.4532
+    AUROC:  0.7794
+    Best F1: 0.5460 (threshold=0.2916)
+    Precision @ Best F1: 0.3935
+    Recall @ Best F1: 0.8910
+
+  bowel_next_30min:
+    Positive rate: 3.13%
+    AUPRC:  0.1160
+    AUROC:  0.8233
+    Best F1: 0.2033 (threshold=0.1592)
+    Precision @ Best F1: 0.1781
+    Recall @ Best F1: 0.2370
+
+  bowel_next_60min:
+    Positive rate: 6.18%
+    AUPRC:  0.2183
+    AUROC:  0.8286
+    Best F1: 0.3265 (threshold=0.1785)
+    Precision @ Best F1: 0.2439
+    Recall @ Best F1: 0.4936
+
+INTERPRETATION
+  The hourly rate baseline captures only the circadian pattern.
+  Any model using features beyond hour-of-day must substantially
+  exceed these AUPRC values to justify its added complexity.
+  These numbers set the performance floor for Phase 3 modeling.

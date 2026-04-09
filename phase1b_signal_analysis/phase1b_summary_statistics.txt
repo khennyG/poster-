@@ -1,0 +1,35 @@
+PHASE 1B: SIGNAL ANALYSIS SUMMARY STATISTICS
+============================================================
+
+FLUID INTAKE TO URINATION RELATIONSHIP
+  Urination rate within 60 min after fluid intake: 38.07%
+  Urination rate within 60 min (no recent intake): 33.53%
+  Relative increase: 13.5%
+
+ACTIVITY LEVEL COMPARISON
+  Mean 30-min activity before urination events: 1.767
+  Mean 30-min activity in non-event windows:    1.828
+  Difference: -0.061
+
+HEART RATE AT EVENT vs NON-EVENT WINDOWS (Waking Hours)
+  Event windows mean HR:     82.02 bpm
+  Non-event windows mean HR: 83.17 bpm
+  Difference:                -1.15 bpm
+
+HRV AT EVENT vs NON-EVENT WINDOWS (Waking Hours)
+  Event windows mean HRV:     41.35 ms
+  Non-event windows mean HRV: 40.01 ms
+  Difference:                 1.34 ms
+
+CUMULATIVE FLUID SINCE LAST VOID
+  At urination events (mean):   0.0 mL
+  At urination events (median): 0.0 mL
+  Non-event windows (mean):     146.3 mL
+  Non-event windows (median):   100.5 mL
+
+TOTAL FLUID INTAKE EVENTS IN DATASET
+  Total intake events (waking):      27,459
+  Total non-intake windows (waking): 131,218
+
+NOTE: bladder_pressure_proxy analysis (Fig13) is for internal
+validation only and must NOT be used as a model feature.

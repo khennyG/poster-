@@ -1,0 +1,129 @@
+
+PHASE 3B: FINAL TEST SET EVALUATION AND CLINICAL OPERATING POINTS
+======================================================================
+
+METHODOLOGY
+  Best models (LightGBM Feature Set A) retrained on 2021-2024 combined.
+  Thresholds tuned on 2024 validation set.
+  Final evaluation on held-out 2025 test set (never previously touched).
+
+TEST SET RESULTS — LightGBM Feature Set A
+======================================================================
+
+urination_next_15min:
+  AUPRC:     0.3500  (baseline: 0.1619, improvement: +116.3%)
+  AUROC:     0.8450
+  F1:        0.4045
+  Precision: 0.3668
+  Recall:    0.4509
+  Threshold: 0.7485
+
+urination_next_30min:
+  AUPRC:     0.4652  (baseline: 0.2432, improvement: +91.3%)
+  AUROC:     0.8510
+  F1:        0.4855
+  Precision: 0.4264
+  Recall:    0.5637
+  Threshold: 0.6996
+
+urination_next_60min:
+  AUPRC:     0.6849  (baseline: 0.4574, improvement: +49.7%)
+  AUROC:     0.8689
+  F1:        0.6378
+  Precision: 0.5728
+  Recall:    0.7196
+  Threshold: 0.5788
+
+bowel_next_30min:
+  AUPRC:     0.1467  (baseline: 0.0977, improvement: +50.1%)
+  AUROC:     0.8558
+  F1:        0.2422
+  Precision: 0.1610
+  Recall:    0.4887
+  Threshold: 0.7387
+
+bowel_next_60min:
+  AUPRC:     0.2546  (baseline: 0.1867, improvement: +36.4%)
+  AUROC:     0.8588
+  F1:        0.3507
+  Precision: 0.2569
+  Recall:    0.5521
+  Threshold: 0.7246
+
+CLINICAL OPERATING POINTS (LightGBM Feature Set A, Test Set)
+======================================================================
+
+Urination Next 15Min:
+  Events per day:           11.9
+  Total alerts per day:     14.6
+  True alerts (captured):   5.4 per day
+  False alerts:             9.3 per day
+  Events captured:          45.1%
+  False alert rate:         63.3%
+
+Urination Next 30Min:
+  Events per day:           17.7
+  Total alerts per day:     23.4
+  True alerts (captured):   10.0 per day
+  False alerts:             13.4 per day
+  Events captured:          56.4%
+  False alert rate:         57.4%
+
+Urination Next 60Min:
+  Events per day:           34.4
+  Total alerts per day:     43.3
+  True alerts (captured):   24.8 per day
+  False alerts:             18.5 per day
+  Events captured:          72.0%
+  False alert rate:         42.7%
+
+Bowel Next 30Min:
+  Events per day:           4.6
+  Total alerts per day:     13.9
+  True alerts (captured):   2.2 per day
+  False alerts:             11.7 per day
+  Events captured:          48.9%
+  False alert rate:         83.9%
+
+Bowel Next 60Min:
+  Events per day:           9.1
+  Total alerts per day:     19.4
+  True alerts (captured):   5.0 per day
+  False alerts:             14.5 per day
+  Events captured:          55.2%
+  False alert rate:         74.3%
+
+GENERALIZATION CHECK: VALIDATION vs TEST AUPRC (LightGBM Set A)
+======================================================================
+Target                       Val AUPRC   Test AUPRC   Difference
+----------------------------------------------------------------------
+urination_next_15min            0.3419       0.3500      +0.0082
+urination_next_30min            0.4575       0.4652      +0.0077
+urination_next_60min            0.6822       0.6849      +0.0027
+bowel_next_30min                0.1678       0.1467      -0.0211
+bowel_next_60min                0.2826       0.2546      -0.0280
+
+KEY CONCLUSIONS FOR PAPER
+======================================================================
+
+1. FEATURE SET A DOMINATES: Schedule, history, and intake features achieve
+   the strongest predictions. Adding wearable features (Set C) provides no
+   meaningful improvement. Wearable features alone (Set B) perform worse
+   than the hourly-rate baseline.
+
+2. LIGHTGBM OUTPERFORMS LOGISTIC REGRESSION: Gradient-boosted trees 
+   consistently outperform the interpretable baseline by 10-20 points in
+   relative AUPRC, reflecting the non-linear feature relationships.
+
+3. TEST SET PERFORMANCE GENERALIZES: Performance on the 2025 test set is
+   consistent with the 2024 validation set, confirming the stationarity
+   of the underlying pattern and the validity of the temporal split.
+
+4. CLINICAL UTILITY: The model provides actionable predictions that could
+   meaningfully support a caregiver alerting system. The precision-recall
+   trade-off at each horizon gives implementers concrete operating points.
+
+5. PRACTICAL IMPLICATION: A useful caregiver support tool does not require
+   continuous wearable monitoring. It needs only a void log and an intake
+   log — a much lower barrier to adoption, especially in resource-limited
+   settings.

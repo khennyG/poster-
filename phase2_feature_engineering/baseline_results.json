@@ -1,0 +1,47 @@
+{
+  "urination_next_15min": {
+    "AUPRC": 0.16172068574080048,
+    "Best F1": 0.24789245838683985,
+    "Precision at Best F1": 0.15482695810564662,
+    "Recall at Best F1": 0.621430203335618,
+    "Best Threshold": 0.12557077625570776,
+    "AUROC": 0.740049464258461,
+    "Positive Rate": 0.08304872495446267
+  },
+  "urination_next_30min": {
+    "AUPRC": 0.24141718012810304,
+    "Best F1": 0.340524207680299,
+    "Precision at Best F1": 0.22067395264116577,
+    "Recall at Best F1": 0.7453091356505691,
+    "Best Threshold": 0.17321156773211568,
+    "AUROC": 0.7512854262768189,
+    "Positive Rate": 0.12336824529447481
+  },
+  "urination_next_60min": {
+    "AUPRC": 0.45317158350048886,
+    "Best F1": 0.5459581601732583,
+    "Precision at Best F1": 0.3935477091214796,
+    "Recall at Best F1": 0.8910302165120152,
+    "Best Threshold": 0.29162861491628617,
+    "AUROC": 0.7793682990050664,
+    "Positive Rate": 0.23924180327868852
+  },
+  "bowel_next_30min": {
+    "AUPRC": 0.11601902870080416,
+    "Best F1": 0.2033281330763327,
+    "Precision at Best F1": 0.17805100182149364,
+    "Recall at Best F1": 0.23696969696969697,
+    "Best Threshold": 0.15920852359208523,
+    "AUROC": 0.8233295227513115,
+    "Positive Rate": 0.03130692167577413
+  },
+  "bowel_next_60min": {
+    "AUPRC": 0.21829261691528445,
+    "Best F1": 0.326493295364099,
+    "Precision at Best F1": 0.2439283545840923,
+    "Recall at Best F1": 0.49355036855036855,
+    "Best Threshold": 0.17853881278538813,
+    "AUROC": 0.8286306872093961,
+    "Positive Rate": 0.06177899210686096
+  }
+}

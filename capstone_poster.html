@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Capstone Poster — Kehinde Adesokan</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+@page{size:48in 36in;margin:0}
+@media print{
+  html,body{margin:0;padding:0}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .poster{box-shadow:none!important;margin:0!important}
+  .download-bar{display:none!important}
+}
+:root{
+  --navy:#1B2A4A;--coral:#C05746;--teal:#2C6E91;--green:#3D7A5A;
+  --cream:#FAF8F5;--white:#FFFFFF;--charcoal:#2D2A26;--muted:#7A7570;
+  --light:#F0EDEA;--shadow:rgba(27,42,74,0.07);
+}
+body{background:#555;font-family:Calibri,'Segoe UI',Arial,sans-serif;color:var(--charcoal);margin:0}
+
+/* ===== DOWNLOAD BAR ===== */
+.download-bar{position:fixed;top:0;left:0;right:0;z-index:9999;background:var(--navy);padding:10px 30px;display:flex;align-items:center;justify-content:center;gap:18px;box-shadow:0 2px 12px rgba(0,0,0,.4)}
+.download-bar span{color:#A8B5CA;font-size:15px}
+.download-bar button{background:var(--coral);color:white;border:none;padding:9px 22px;border-radius:6px;font-size:15px;font-weight:600;cursor:pointer}
+.download-bar button:hover{background:#a8473a}
+.download-bar button.sec{background:var(--teal)}
+.download-bar button.sec:hover{background:#20546f}
+
+/* ===== POSTER ===== */
+.poster{width:4800px;height:3600px;background:var(--cream);margin:50px auto 30px;position:relative;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,.35)}
+
+/* ===== HEADER ===== */
+.header{background:var(--navy);padding:18px 44px 0;flex-shrink:0}
+.header-row{display:flex;align-items:center;justify-content:center;gap:30px;padding-bottom:16px}
+.logo-box{width:180px;height:180px;border:3px dashed #6B7FA0;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#8899B3;font-size:16px;font-weight:bold;text-align:center;flex-shrink:0;background:rgba(255,255,255,.04)}
+.header-center{flex:1;text-align:center;max-width:3900px}
+.header-center h1{font-family:Georgia,'Times New Roman',serif;font-size:50px;font-weight:bold;color:var(--white);line-height:1.16;margin-bottom:8px}
+.header-center .author{font-size:25px;color:var(--white);font-weight:600;margin-bottom:2px}
+.header-center .affiliation{font-size:19px;color:#A8B5CA}
+.header-stripe{height:6px;background:var(--coral);flex-shrink:0}
+
+/* ===== FOOTER ===== */
+.footer-wrap{flex-shrink:0;margin-top:auto}
+.footer-stripe{height:4px;background:var(--coral)}
+.footer{background:var(--navy);padding:10px 44px;text-align:center;font-size:18px;color:#A8B5CA}
+
+/* ===== CONTENT ===== */
+.content{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;padding:14px 26px 10px;min-height:0}
+.column{display:flex;flex-direction:column;gap:10px;min-height:0}
+
+/* ===== CARDS ===== */
+.card{background:var(--white);border-radius:9px;box-shadow:0 2px 10px var(--shadow);overflow:hidden}
+.card-body{padding:10px 16px}
+
+/* ===== SECTION HEADERS ===== */
+.shdr{background:var(--coral);padding:7px 16px;display:flex;align-items:center;gap:9px}
+.shdr h2{font-family:Georgia,'Times New Roman',serif;font-size:28px;font-weight:bold;color:var(--white)}
+.si{width:24px;height:24px;flex-shrink:0}
+
+/* ===== TEXT ===== */
+.bt{font-size:22px;line-height:1.36}
+.bts{font-size:19px;line-height:1.32}
+.cap{font-size:15px;color:var(--muted);font-style:italic;margin-top:2px}
+
+/* ===== FIGURES ===== */
+.fi{width:100%;height:auto;display:block;border-radius:4px;border:1px solid #E8E5E2}
+.fr{display:flex;gap:10px}
+.fr .fw{flex:1;min-width:0}
+
+/* ===== FLOWCHART ===== */
+.flow{display:flex;flex-direction:column;align-items:center}
+.fs{width:100%;border:2px solid var(--coral);border-radius:7px;background:var(--white);padding:7px 12px;text-align:center}
+.fs .sn{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--coral);color:var(--white);font-weight:bold;font-size:14px;margin-right:6px;vertical-align:middle}
+.fs .sl{font-size:19px;font-weight:bold;color:var(--navy)}
+.fs .sd{font-size:15px;color:var(--muted);margin-top:1px}
+.fa{display:flex;flex-direction:column;align-items:center}
+.fa .al{width:3px;height:7px;background:var(--coral)}
+.fa .ah{width:0;height:0;border-left:6px solid transparent;border-right:6px solid transparent;border-top:8px solid var(--coral)}
+
+/* ===== FEATURE SET BOXES ===== */
+.fsr{display:flex;gap:7px;margin-top:8px}
+.fb{flex:1;border-radius:6px;padding:7px 6px;text-align:center;color:var(--white);font-size:14px;line-height:1.3}
+.fb strong{font-size:16px;display:block;margin-bottom:1px}
+.fa1{background:var(--teal)}.fb2{background:var(--coral)}.fc3{background:var(--green)}
+
+/* ===== TABLE ===== */
+.rt{width:100%;border-collapse:collapse;font-size:19px;margin-top:5px}
+.rt th{background:var(--navy);color:var(--white);font-weight:bold;padding:5px 10px;text-align:left;font-size:17px}
+.rt td{padding:4px 10px;border-bottom:1px solid #E8E5E2}
+.rt tr:nth-child(even) td{background:var(--light)}
+.rt .imp{color:var(--green);font-weight:bold}
+
+/* ===== WEARABLE BANNER ===== */
+.wb{background:var(--charcoal);border-radius:7px;padding:12px 16px;text-align:center;margin-top:6px}
+.wb .wm{font-family:Georgia,serif;font-size:23px;font-weight:bold;color:var(--coral)}
+.wb .ws{font-size:16px;color:#B0ADA9;margin-top:2px}
+
+/* ===== COMPARISON ===== */
+.cmp{display:flex;align-items:stretch;gap:0}
+.cs{flex:1;border-radius:9px;padding:12px 10px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:3px}
+.co{background:#F9EDEB;border:2px solid var(--coral)}.cn{background:#EBF5EF;border:2px solid var(--green)}
+.cvs{display:flex;align-items:center;justify-content:center;padding:0 3px;flex-shrink:0}
+.cvs span{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--white);font-family:Georgia,serif;font-size:17px;font-weight:bold}
+.ci{font-size:32px}.ct{font-family:Georgia,serif;font-size:20px;font-weight:bold}
+.co .ct{color:var(--coral)}.cn .ct{color:var(--green)}
+.cp{font-size:16px;line-height:1.28}
+.cb{display:inline-flex;align-items:center;gap:4px;font-size:18px;font-weight:bold;margin-top:1px}
+.co .cb{color:var(--coral)}.cn .cb{color:var(--green)}
+
+/* ===== FEATURES LIST ===== */
+.fl{display:flex;flex-direction:column;gap:6px}
+.fli{display:flex;align-items:center;gap:9px;background:var(--light);border-radius:6px;padding:7px 10px}
+.fic{width:34px;height:34px;border-radius:50%;background:var(--teal);color:var(--white);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.fic.w{background:var(--coral)}
+.ft{font-size:18px;line-height:1.22}
+.ft strong{color:var(--navy)}
+.ft .g{color:var(--muted);font-size:15px}
+
+/* ===== CONCLUSIONS ===== */
+.cl{display:flex;flex-direction:column;gap:7px}
+.cli{display:flex;align-items:flex-start;gap:9px}
+.cln{width:30px;height:30px;border-radius:50%;background:var(--coral);color:var(--white);font-weight:bold;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.clt{font-size:18px;line-height:1.32}
+.fw{font-size:16px;font-style:italic;color:var(--muted);margin-top:7px;padding-top:6px;border-top:1.5px solid #E8E5E2}
+
+/* ===== KEY FINDING ===== */
+.kf{background:var(--light);border-left:4px solid var(--teal);border-radius:0 7px 7px 0;padding:9px 13px;margin-top:5px}
+.kf p{font-size:19px;line-height:1.32}
+.kf strong{color:var(--navy)}
+.sh{font-family:Georgia,serif;font-weight:bold;color:var(--green)}
+
+/* ===== REFERENCES ===== */
+.refs{font-size:14px;line-height:1.38;color:var(--muted);padding:8px 16px}
+.refs strong{color:var(--charcoal);font-size:16px}
+
+.mt4{margin-top:4px}.mt6{margin-top:6px}.mt8{margin-top:8px}
+</style>
+</head>
+<body>
+
+<div class="download-bar">
+  <span>Capstone Research Poster &mdash; 48&Prime; &times; 36&Prime;</span>
+  <button onclick="window.print()">&#128438; Save as PDF</button>
+  <button class="sec" onclick="alert('To get an editable PPTX:\n\n1. Click Save as PDF first (browser print dialog)\n2. Set paper: Custom 48 x 36 in, Landscape, Margins: None\n3. Save the PDF\n4. Open PowerPoint → File → Open → select the PDF\n   PowerPoint converts each page into an editable slide.\n\nAll layout, fonts, and images are preserved.')">&#128196; How to Export PPTX</button>
+</div>
+
+<div class="poster">
+
+<!-- =================== HEADER =================== -->
+<div class="header">
+  <div class="header-row">
+    <div class="logo-box">[HIMSS LOGO<br>or PHOTO]</div>
+    <div class="header-center">
+      <h1>Personalized Prediction of Toileting Events for Caregivers<br>of Individuals With Severe Autism: A Longitudinal Machine Learning Study</h1>
+      <div class="author">Kehinde Adesokan</div>
+      <div class="affiliation">MS Health Informatics &nbsp;|&nbsp; Bouv&eacute; College of Health Sciences &nbsp;|&nbsp; Northeastern University &nbsp;|&nbsp; April 2026</div>
+    </div>
+    <div class="logo-box">[NU LOGO]</div>
+  </div>
+</div>
+<div class="header-stripe"></div>
+
+<!-- =================== CONTENT =================== -->
+<div class="content">
+
+<!-- ============ LEFT COLUMN ============ -->
+<div class="column">
+
+  <!-- INTRODUCTION -->
+  <div class="card">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="none"><circle cx="11" cy="10" r="5" fill="white"/><circle cx="23" cy="10" r="5" fill="white"/><path d="M1 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="white" opacity=".6"/><path d="M13 30c0-5.5 4.5-10 10-10s10 4.5 10 10" fill="white" opacity=".6"/></svg>
+      <h2>Introduction</h2>
+    </div>
+    <div class="card-body">
+      <p class="bt">Thirty-five percent of children with autism have not achieved consistent toileting by age three. For many, the challenge follows them into adulthood, and it falls on their caregivers to manage it every single day. The tools available to these families have not changed in decades: fixed schedules, rigid prompting, constant vigilance. This study asked a simple question: can we do better?</p>
+    </div>
+  </div>
+
+  <!-- METHODS -->
+  <div class="card" style="flex:1;">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="white"><circle cx="17" cy="17" r="6" fill="none" stroke="white" stroke-width="2.5"/><circle cx="17" cy="17" r="2"/><rect x="15.5" y="2" width="3" height="6" rx="1.5"/><rect x="15.5" y="26" width="3" height="6" rx="1.5"/><rect x="2" y="15.5" width="6" height="3" rx="1.5"/><rect x="26" y="15.5" width="6" height="3" rx="1.5"/></svg>
+      <h2>Methods</h2>
+    </div>
+    <div class="card-body">
+      <div class="flow">
+        <div class="fs"><span class="sn">1</span><span class="sl">Data Collection</span><div class="sd">262,944 observations | 10-min windows | 5 years (2021 to 2025) | 60 variables</div></div>
+        <div class="fa"><div class="al"></div><div class="ah"></div></div>
+        <div class="fs"><span class="sn">2</span><span class="sl">Feature Engineering</span><div class="sd">3 feature sets: Set A (54, schedule+intake), Set B (8, wearable), Set C (62, combined)</div></div>
+        <div class="fa"><div class="al"></div><div class="ah"></div></div>
+        <div class="fs"><span class="sn">3</span><span class="sl">Temporal Split</span><div class="sd">Train 2021 to 2023 | Validate 2024 | Test 2025 (no data leakage)</div></div>
+        <div class="fa"><div class="al"></div><div class="ah"></div></div>
+        <div class="fs"><span class="sn">4</span><span class="sl">Model Training</span><div class="sd">LightGBM + Logistic Regression | 30 models | 5 prediction targets</div></div>
+        <div class="fa"><div class="al"></div><div class="ah"></div></div>
+        <div class="fs"><span class="sn">5</span><span class="sl">Evaluation</span><div class="sd">AUPRC primary metric | SHAP interpretability | Clinical operating points</div></div>
+      </div>
+      <div class="fsr">
+        <div class="fb fa1"><strong>Set A</strong>54 features<br>Schedule, History, Intake<br>No wearable needed</div>
+        <div class="fb fb2"><strong>Set B</strong>8 features<br>HR, HRV, Activity<br>Wearable only</div>
+        <div class="fb fc3"><strong>Set C</strong>62 features<br>Combined A + B<br>Full multimodal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATIONARITY (Fig07) -->
+  <div class="card">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="white"><path d="M3 28h28M3 28V6" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/><polyline points="6,20 12,18 18,21 24,17 30,19" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <h2>Data Stationarity: Five-Year Stability</h2>
+    </div>
+    <div class="card-body">
+      <img class="fi" src="phase1_exploratory/Fig07_daily_event_counts_trend.png" alt="Daily Event Counts 2021-2025">
+      <div class="cap"><em>Figure 1.</em> Daily event counts from 2021 to 2025 with 30-day rolling averages. Urination held steady at 6.0/day and bowel at 1.5/day with no drift, validating the temporal split.</div>
+    </div>
+  </div>
+
+  <!-- REFERENCES -->
+  <div class="refs">
+    <strong>References</strong><br>
+    Simon et al. (2022), <em>Res. in Autism Spectrum Disorders</em>.
+    Marsack-Topolewski et al. (2021), <em>PLOS ONE</em>.
+    Ali et al. (2022), <em>BMC Med. Informatics</em>.
+    Nan et al. (2024), <em>Sensors</em>.
+    Kline et al. (2022), <em>npj Digital Med</em>.
+    Aguilera et al. (2024), <em>JMIR</em>.
+    Lundberg et al. (2020), <em>Nature Mach. Intelligence</em>.
+    Full list in capstone paper.
+  </div>
+
+</div><!-- /left -->
+
+<!-- ============ CENTER COLUMN ============ -->
+<div class="column">
+
+  <!-- EXPLORATORY RESULTS -->
+  <div class="card">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="white"><rect x="3" y="18" width="7" height="13" rx="1.5"/><rect x="13.5" y="10" width="7" height="21" rx="1.5"/><rect x="24" y="3" width="7" height="28" rx="1.5"/></svg>
+      <h2>Results: Patterns in the Data</h2>
+    </div>
+    <div class="card-body">
+      <!-- Row 1: Hourly distribution + Dose-response -->
+      <div class="fr">
+        <div class="fw">
+          <img class="fi" src="phase1_exploratory/Fig01_urination_hourly_distribution.png" alt="Urination by Hour">
+          <div class="cap"><em>Figure 2.</em> Urination events by hour. Sharp 07:00 peak.</div>
+        </div>
+        <div class="fw">
+          <img class="fi" src="phase1b_signal_analysis/Fig12_cumulative_intake_vs_event_probability.png" alt="Dose-Response">
+          <div class="cap"><em>Figure 3.</em> Dose-response: fluid intake vs voiding probability.</div>
+        </div>
+      </div>
+      <!-- Row 2: Time-to-void survival curve -->
+      <div class="mt4">
+        <img class="fi" src="phase1b_signal_analysis/Fig09_time_to_void_after_drinking.png" alt="Time to Void After Drinking">
+        <div class="cap"><em>Figure 4.</em> Time to next void: post-intake (blue) vs control windows (orange). Drinking accelerates voiding by 30 to 150 minutes.</div>
+      </div>
+      <div class="kf mt4">
+        <p><strong>97.3% of events</strong> during waking hours. Circadian peak at 07:00. Cumulative fluid intake drove a <strong>fourfold increase</strong> in voiding probability (11.9% &rarr; 50.4%). Wearable signals: delta &lt; 0.35 bpm, clinically meaningless.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODEL PERFORMANCE -->
+  <div class="card" style="flex:1;">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="white"><circle cx="17" cy="17" r="14" fill="none" stroke="white" stroke-width="2.5"/><circle cx="17" cy="11" r="3"/><circle cx="11" cy="22" r="3"/><circle cx="23" cy="22" r="3"/><line x1="17" y1="14" x2="12" y2="20" stroke="white" stroke-width="2"/><line x1="17" y1="14" x2="22" y2="20" stroke="white" stroke-width="2"/><line x1="14" y1="22" x2="20" y2="22" stroke="white" stroke-width="2"/></svg>
+      <h2>Results: Prediction Performance</h2>
+    </div>
+    <div class="card-body">
+      <div class="fr">
+        <div class="fw">
+          <img class="fi" src="phase3_modeling/Fig22_feature_set_comparison.png" alt="Feature Set Comparison">
+          <div class="cap"><em>Figure 5.</em> AUPRC across feature sets and targets.</div>
+        </div>
+        <div class="fw">
+          <img class="fi" src="phase3b_test_evaluation/Fig23_test_precision_recall_urination.png" alt="PR Curves">
+          <div class="cap"><em>Figure 6.</em> Test set precision-recall curves (urination).</div>
+        </div>
+      </div>
+      <table class="rt mt6">
+        <thead><tr><th>Target</th><th>Baseline AUPRC</th><th>Test AUPRC</th><th>Improvement</th></tr></thead>
+        <tbody>
+          <tr><td>Urination 15 min</td><td>0.162</td><td>0.350</td><td class="imp">+116%</td></tr>
+          <tr><td>Urination 30 min</td><td>0.243</td><td>0.465</td><td class="imp">+91%</td></tr>
+          <tr><td>Urination 60 min</td><td>0.457</td><td>0.685</td><td class="imp">+50%</td></tr>
+          <tr><td>Bowel 30 min</td><td>0.098</td><td>0.147</td><td class="imp">+50%</td></tr>
+          <tr><td>Bowel 60 min</td><td>0.187</td><td>0.255</td><td class="imp">+36%</td></tr>
+        </tbody>
+      </table>
+      <div class="wb">
+        <div class="wm">WEARABLE SIGNALS ADDED ZERO PREDICTIVE VALUE</div>
+        <div class="ws">Set A = Set C (within 0.003 AUPRC) | Set B worse than baseline on every target</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /center -->
+
+<!-- ============ RIGHT COLUMN ============ -->
+<div class="column">
+
+  <!-- CLINICAL IMPACT -->
+  <div class="card">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="white"><circle cx="17" cy="17" r="14" fill="none" stroke="white" stroke-width="2.5"/><line x1="17" y1="8" x2="17" y2="18" stroke="white" stroke-width="2.5" stroke-linecap="round"/><line x1="17" y1="18" x2="24" y2="22" stroke="white" stroke-width="2.5" stroke-linecap="round"/><circle cx="17" cy="17" r="2"/></svg>
+      <h2>Clinical Impact</h2>
+    </div>
+    <div class="card-body">
+      <img class="fi" src="phase3b_test_evaluation/Fig24_clinical_operating_points.png" alt="Clinical Operating Points">
+      <div class="cap"><em>Figure 7.</em> Clinical operating points: daily alert breakdown (left) and precision vs recall (right).</div>
+      <div class="kf mt4">
+        <p>At the 60-minute urination horizon: the model captures <strong class="sh">72% of events</strong> with a 43% false alert rate, producing ~<strong>25 true alerts</strong> and 18 false alerts per day.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERPRETABILITY: SHAP -->
+  <div class="card">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="white"><polygon points="17,2 21,13 33,13 23,20 27,31 17,24 7,31 11,20 1,13 13,13"/></svg>
+      <h2>What Drives the Predictions?</h2>
+    </div>
+    <div class="card-body">
+      <div class="fr">
+        <div class="fw">
+          <img class="fi" src="phase3_modeling/Fig19_feature_importance_lightgbm.png" alt="Feature Importance">
+          <div class="cap"><em>Figure 8.</em> Top features by LightGBM gain.</div>
+        </div>
+        <div class="fw">
+          <img class="fi" src="phase3_modeling/Fig21_shap_beeswarm_plot.png" alt="SHAP Beeswarm">
+          <div class="cap"><em>Figure 9.</em> SHAP beeswarm: how feature values push predictions.</div>
+        </div>
+      </div>
+      <div class="fl mt6">
+        <div class="fli"><div class="fic"><svg viewBox="0 0 24 24" width="18" height="18" fill="white"><circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="2"/><line x1="12" y1="6" x2="12" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="12" x2="16" y2="15" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ft"><strong>Hour of Day</strong> <span class="g">(313K gain)</span></div></div>
+        <div class="fli"><div class="fic"><svg viewBox="0 0 24 24" width="18" height="18" fill="white"><circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="2"/><path d="M12 6v6l-4 4" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"/></svg></div><div class="ft"><strong>Minutes Since Last Urination</strong> <span class="g">(244K gain)</span></div></div>
+        <div class="fli"><div class="fic"><svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div><div class="ft"><strong>Minutes Until Sleep</strong> <span class="g">(229K gain)</span></div></div>
+        <div class="fli"><div class="fic w"><svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12 2c-4 6-8 10-8 14a8 8 0 0016 0c0-4-4-8-8-14z"/></svg></div><div class="ft"><strong>Cumulative Fluid Intake</strong> <span class="g">(101K gain)</span></div></div>
+      </div>
+      <p class="bts mt4" style="text-align:center;color:var(--teal);font-weight:600;font-size:17px;">All four trackable by a caregiver or simple mobile app. No wearable required.</p>
+    </div>
+  </div>
+
+  <!-- THE ONE THING -->
+  <div class="card">
+    <div class="card-body" style="padding:10px 12px;">
+      <div class="cmp">
+        <div class="cs co">
+          <div class="ci">&#x1F552;</div>
+          <div class="ct">Fixed Schedule</div>
+          <div class="cp">Same prompt every 2 hours</div>
+          <div class="cp">No adaptation to patterns</div>
+          <div class="cp">Treats every window as equal</div>
+          <div class="cb">&#x2717; Missed events</div>
+        </div>
+        <div class="cvs"><span>VS</span></div>
+        <div class="cs cn">
+          <div class="ci">&#x1F4F1;</div>
+          <div class="ct">Personalized Prediction</div>
+          <div class="cp">Adapts to intake, void timing, time of day</div>
+          <div class="cp">Concentrates alerts when likely</div>
+          <div class="cp" style="font-weight:bold;">72% of events captured</div>
+          <div class="cb">&#x2713; Smarter care</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONCLUSIONS -->
+  <div class="card" style="flex:1;">
+    <div class="shdr">
+      <svg class="si" viewBox="0 0 34 34" fill="white"><path d="M17 3a10 10 0 00-4 19.2V26a2 2 0 002 2h4a2 2 0 002-2v-3.8A10 10 0 0017 3z"/><rect x="13" y="29" width="8" height="2" rx="1"/></svg>
+      <h2>Conclusions</h2>
+    </div>
+    <div class="card-body">
+      <div class="cl">
+        <div class="cli"><div class="cln">1</div><div class="clt">Personalized toileting prediction is feasible using five years of caregiver-logged data, with AUPRC gains of <strong>36% to 116%</strong> over baseline.</div></div>
+        <div class="cli"><div class="cln">2</div><div class="clt"><strong>Wearable technology is not required.</strong> Schedule, intake, and void history alone achieve the best performance.</div></div>
+        <div class="cli"><div class="cln">3</div><div class="clt">The top four predictive features are all trackable by a caregiver or simple mobile app, making deployment accessible in <strong>resource-limited settings</strong>.</div></div>
+        <div class="cli"><div class="cln">4</div><div class="clt">At the 60-minute horizon, the model captures <strong>72% of urination events</strong>, meaningfully improving upon fixed-schedule prompting.</div></div>
+      </div>
+      <div class="fw">
+        <strong>Future Work:</strong> Multi-participant replication | Reinforcement learning for alert optimization | Mobile app development
+      </div>
+    </div>
+  </div>
+
+</div><!-- /right -->
+
+</div><!-- /content -->
+
+<!-- =================== FOOTER =================== -->
+<div class="footer-wrap">
+  <div class="footer-stripe"></div>
+  <div class="footer">k.adesokan@northeastern.edu &nbsp;&nbsp;|&nbsp;&nbsp; Bouv&eacute; College of Health Sciences, Northeastern University &nbsp;&nbsp;|&nbsp;&nbsp; HINF 6215 Health Informatics Capstone &nbsp;&nbsp;|&nbsp;&nbsp; New England HIMSS 2026</div>
+</div>
+
+</div><!-- /poster -->
+</body>
+</html>

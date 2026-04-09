@@ -1,0 +1,33 @@
+PHASE 1A: SUMMARY STATISTICS
+==================================================
+
+EVENT TOTALS
+  Total urination events: 10,965
+  Total bowel events:     2,759
+  Total days in dataset:  1,826
+
+DAILY EVENT RATES
+  Urinations per day:      6.00  (SD: 1.20)
+  Bowel movements per day: 1.51  (SD: 0.73)
+
+INTER-EVENT INTERVALS (URINATION)
+  Median: 160 minutes
+  IQR:    110 to 240 minutes
+  Mean:   240 minutes
+
+INTER-EVENT INTERVALS (BOWEL)
+  Median: 1090 minutes
+  IQR:    370 to 1420 minutes
+  Mean:   953 minutes
+
+PEAK HOURS
+  Peak urination hour:      07:00
+  Peak bowel movement hour: 07:00
+
+SLEEP vs WAKE
+  Urination events during waking hours: 97.3%
+  Bowel events during waking hours:     98.4%
+
+WEEKDAY vs WEEKEND (URINATION)
+  Weekday average: 6.04 per day
+  Weekend average: 5.91 per day
